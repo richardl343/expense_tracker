@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h2>Recent Expenses</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ expense.category }}</td>
+                    <td>{{ "%.2f"|format(expense.amount) }}</td>
+                    <td>{{ expense.description }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>Total spent this month: {{ "%.2f"|format(total_spent) }}</p>
+    </div>
+    
+    <div class="col-md-4">
+        <h2>Budget Overview</h2>
+        {% if budget_data %}
+            {% for item in budget_data %}
+            <div class="mb-3">
+                <h5>{{ item.category }}</h5>
+                <div class="progress">
+                    {% set percentage = (item.spent / item.budget) * 100 %}
+                    <div class="progress-bar 
+                        {% if percentage > 100 %}bg-danger
+                        {% elif percentage > 80 %}bg-warning
+                        {% else %}bg-success{% endif %}" 
+                        style="width: {{ percentage if percentage <= 100 else 100 }}%">
+                        {{ "%.1f"|format(percentage) }}%
+                    </div>
+                </div>
+                <small>
+                    Spent: {{ "%.2f"|format(item.spent) }} / 
+                    Budget: {{ "%.2f"|format(item.budget) }} | 
+                    Remaining: {{ "%.2f"|format(item.remaining) }}
+                </small>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No budgets set yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

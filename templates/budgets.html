@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <h2>Set Budget</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <select class="form-select" name="category" required>
+                    {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Amount</label>
+                <input type="number" step="0.01" class="form-control" name="amount" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Budget</button>
+        </form>
+    </div>
+    
+    <div class="col-md-6">
+        <h2>Current Budgets</h2>
+        {% if budgets %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for budget in budgets %}
+                <tr>
+                    <td>{{ budget.category }}</td>
+                    <td>{{ "%.2f"|format(budget.amount) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No budgets set yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
