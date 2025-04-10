@@ -40,4 +40,8 @@
 3. Access at http://localhost:5000
 
 ![image](https://github.com/user-attachments/assets/eee6a904-f3aa-4f64-96cb-cbdf2f68c106)
+![image](https://github.com/user-attachments/assets/8303a038-96d9-4ebf-8990-f8b6a900cf7f)
+![image](https://github.com/user-attachments/assets/517f9734-aeb7-4331-8613-ed75d5176e0d)
+
+
 
