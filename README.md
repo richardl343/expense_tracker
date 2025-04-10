@@ -33,3 +33,11 @@
 1. Try adding non-numeric amount
 2. Try submitting empty form
 3. Verify proper error messages
+
+## DOCKER README
+1. docker-compose build (build the image)
+2. docker-compose up (Run the Container)
+3. Access at http://localhost:5000
+
+![image](https://github.com/user-attachments/assets/eee6a904-f3aa-4f64-96cb-cbdf2f68c106)
+
