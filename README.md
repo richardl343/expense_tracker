@@ -2,16 +2,15 @@
 
 ## Files included:
 
-1.app.py (main application)
-2.templates/ (all HTML templates)
-3.requirements.txt
-4.expenses.db (SQLite database)
+1. app.py (main application)
+2. templates/ (all HTML templates)
+3. requirements.txt
+4. expenses.db (SQLite database)
 
 ## How to run:
 
-1.Install requirements: pip install -r requirements.txt
-2.Run the app: python app.py
-3.Access at http://localhost:5000
+1. Install requirements: pip install -r requirements.txt
+2. Run the app: python app.py
 
 ## Test Cases
 
